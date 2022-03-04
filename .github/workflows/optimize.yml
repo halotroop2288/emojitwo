@@ -1,0 +1,17 @@
+name: Optimize SVGs
+
+on:
+  push:
+    paths:
+      - "**.svg"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Optimize SVGs
+        uses: ericcornelissen/svgo-action@v2.1.5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
